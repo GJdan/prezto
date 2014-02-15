@@ -75,3 +75,5 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
+typeset -U path
+path=(~/bin $path)
