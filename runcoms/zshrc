@@ -14,3 +14,8 @@ fi
 
 setopt APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
+
+# Source zprofile.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile"
+fi

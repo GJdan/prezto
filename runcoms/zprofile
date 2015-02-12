@@ -76,4 +76,10 @@ if [[ ! -d "$TMPPREFIX" ]]; then
 fi
 
 typeset -U path
-path=(~/bin $path)
+path=(~/bin ~/.local/bin $path)
+
+# Disable flow control bindings (C-s and C-q)
+stty stop undef
+stty start undef
+
+export WORKON_HOME="/opt/virtualenvs"
