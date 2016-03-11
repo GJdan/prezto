@@ -87,6 +87,7 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'sorin'
+#zstyle ':prezto:module:prompt' theme 'elite2' 'green'
 
 #
 # Screen
@@ -146,4 +147,3 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 
 # Auto start a session when Zsh is launched in a SSH connection.
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
-

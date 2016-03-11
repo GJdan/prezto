@@ -76,10 +76,15 @@ if [[ ! -d "$TMPPREFIX" ]]; then
 fi
 
 typeset -U path
-path=(~/bin ~/.local/bin $path)
+ruby_path="$(ruby -e 'print Gem.user_dir')/bin"
+path=(~/bin ~/.local/bin $ruby_path $path)
+#path=(~/bin $path)
 
 # Disable flow control bindings (C-s and C-q)
 stty stop undef
 stty start undef
 
-export WORKON_HOME="/opt/virtualenvs"
+#export WORKON_HOME="/opt/virtualenvs"
+source /usr/bin/virtualenvwrapper.sh
+
+umask 002
