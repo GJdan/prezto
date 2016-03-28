@@ -87,7 +87,13 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'sorin'
-#zstyle ':prezto:module:prompt' theme 'elite2' 'green'
+
+#
+# Ruby
+#
+
+# Auto switch the Ruby version on directory change.
+# zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 
 #
 # Screen
@@ -116,6 +122,7 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 #   'main' \
 #   'brackets' \
 #   'pattern' \
+#   'line' \
 #   'cursor' \
 #   'root'
 #
@@ -147,3 +154,6 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 
 # Auto start a session when Zsh is launched in a SSH connection.
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+
+# Integrate with iTerm2.
+# zstyle ':prezto:module:tmux:iterm' integrate 'yes'

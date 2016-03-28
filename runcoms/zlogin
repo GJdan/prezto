@@ -14,9 +14,10 @@
   fi
 } &!
 
-# Commenting out zsh fortune call as I already have a cow that tells me my random hopefully interesting adages.
 # Print a random, hopefully interesting, adage.
-#if (( $+commands[fortune] )); then
-#  fortune -a
-#  print
-#fi
+if (( $+commands[fortune] )); then
+  if [[ -t 0 || -t 1 ]]; then
+    fortune -s
+    print
+  fi
+fi
