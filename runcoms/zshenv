@@ -9,3 +9,29 @@
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+# PATH Updates
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "$HOME/.composer/vendor/bin" ]; then
+    PATH="$HOME/.composer/vendor/bin:$PATH"
+fi
+
+if [ -d "$HOME/Library/Python/3.6/bin" ]; then
+    PATH="$HOME/Library/Python/3.6/bin:$PATH"
+fi
+
+# Set umask so that I set group on new files.
+umask 002
+
+# NVM Stuff.
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+export PAGER=less
