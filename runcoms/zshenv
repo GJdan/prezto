@@ -27,6 +27,10 @@ if [ -d "$HOME/Library/Python/3.6/bin" ]; then
     PATH="$HOME/Library/Python/3.6/bin:$PATH"
 fi
 
+if [ -d "$HOME/.ansible/bin" ]; then
+    PATH="$HOME/.ansible/bin:$PATH"
+fi
+
 # Set umask so that I set group on new files.
 umask 002
 
