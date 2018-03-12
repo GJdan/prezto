@@ -5,6 +5,27 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# First choice fix for Mac emacs tramp not successfully connecting to zsh linux.
+if [[ "$TERM" == "dumb" ]]
+then
+  unsetopt zle
+  unsetopt prompt_cr
+  unsetopt prompt_subst
+  if whence -w precmd >/dev/null; then
+      unfunction precmd
+  fi
+  if whence -w preexec >/dev/null; then
+      unfunction preexec
+  fi
+  PS1='$ '
+fi
+
+# Second choice To enable tramp access from MAC machines.
+# [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '
+
+# Third choice Comment out the lines above and use this "temporarily" instead if there are still issues.
+# [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -14,3 +35,7 @@ fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
