@@ -5,6 +5,28 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# First choice fix for Mac emacs tramp not successfully connecting to zsh linux.
+if [[ "$TERM" == "dumb" ]]
+then
+  unsetopt zle
+  unsetopt prompt_cr
+  unsetopt prompt_subst
+  if whence -w precmd >/dev/null; then
+      unfunction precmd
+  fi
+  if whence -w preexec >/dev/null; then
+      unfunction preexec
+  fi
+  PS1='$ '
+fi
+
+# Second choice To enable tramp access from MAC machines.
+# [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '
+
+# Third choice Comment out the lines above and use this "temporarily" instead if there are still issues.
+# [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -14,8 +36,13 @@ fi
 
 setopt APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
 
 # Source zprofile.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile"
 fi
+
+source "/usr/share/nvm/init-nvm.sh"
+
+alias steam-wine='env WINEPREFIX=/home/greg/.wine-steam wine ~/.wine-steam/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe -no-cef-sandbox >>/dev/null 2>&1 &'
