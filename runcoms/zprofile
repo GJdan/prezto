@@ -77,17 +77,18 @@ if [[ ! -d "$TMPPREFIX" ]]; then
 fi
 
 typeset -U path
-ruby_path="$(ruby -e 'print Gem.user_dir')/bin"
-path=(~/bin ~/.local/bin $ruby_path $path)
+# ruby_path="$(ruby -e 'print Gem.user_dir')/bin"
+# path=(~/bin ~/.local/bin $ruby_path $path)
+path=(~/bin ~/.local/bin $path)
 
 # Disable flow control bindings (C-s and C-q)
 stty stop undef
 stty start undef
 
-source /usr/local/bin/virtualenvwrapper.sh
+# source /usr/local/bin/virtualenvwrapper.sh
 
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+# export GTK_IM_MODULE=ibus
+# export XMODIFIERS=@im=ibus
+# export QT_IM_MODULE=ibus
 
 umask 002

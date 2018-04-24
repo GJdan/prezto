@@ -43,6 +43,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile"
 fi
 
-source "/usr/share/nvm/init-nvm.sh"
+# source "/usr/share/nvm/init-nvm.sh"
 
-alias steam-wine='env WINEPREFIX=/home/greg/.wine-steam wine ~/.wine-steam/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe -no-cef-sandbox >>/dev/null 2>&1 &'
+# alias steam-wine='env WINEPREFIX=/home/greg/.wine-steam wine ~/.wine-steam/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe -no-cef-sandbox >>/dev/null 2>&1 &'
